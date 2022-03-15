@@ -1,0 +1,95 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- hello
+- what_scope
+- dislike
+- like
+- how_are_you
+- goodbye
+- affirm
+- deny
+- cancel
+- mood_great
+- mood_unhappy
+- nlu_fallback
+- out_of_scope
+- thank_you
+- jokes
+
+actions:
+  - cancel
+
+responses:
+  utter_out_of_scope:
+  - text: Sorry, I can't handle requests like that yet. you can ask me anything but my focus is music, navigation, weather, calls, messages and chat
+  utter_hello:
+  - text: Hello! How can I help?
+  - text: Hey! how may I assist you?
+  utter_happy:
+  - text: Good to hear that
+  - text: Happy to hear that
+  utter_sad:
+  - text: Sorry to hear that
+  - text: Sad to hear that
+  utter_goodbye:
+  - text: Talk to you later!
+  - text: Bye
+  - text: See you!
+  utter_scope:
+  - text: you can ask me anything but my focus is music, navigation, weather, calls, messages and chat
+  utter_not_found:
+  - text: No options found
+  utter_only_option:
+  - text: only option is {choice}
+  utter_ask_choice:
+  - text: found several options {choices}. which would you like?
+  utter_selected_choice:
+  - text: you chose {choice}
+  utter_invalid_choice:
+  - text: that is not a valid option
+  utter_cancel:
+  - text: cancelling
+  utter_ask_cancel:
+  - text: do you want to cancel
+  utter_dislike:
+  - text: Sorry, I'm working on it
+  - text: Sorry, I will try to get better
+  utter_like:
+  - text: Thank you, I'm glad you like me!
+  utter_you_are_welcome:
+  - text: You are welcome
+  - text: Welcome
+  - text: You are very welcome
+  - text: You are always welcome
+  utter_iamfine:
+  - text: I am fine. Thank you.
+  - text: I am doing great, thank you!
+  - text: Doing all right.
+  utter_ok:
+  - text: Ok
+  utter_time:
+  - text: Time is calculated
+  utter_youarewelcome:
+  - text: You're very welcome.
+  utter_get_started:
+  - text: I can help you with navigation
+  utter_ask_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  - text: Sorry, I didn't catch that, can you rephrase?
+  - text: Apologies, I didn't understand. Could you please rephrase it?
+  utter_default:
+  - text: I'm sorry, I can't help you.
+  utter_database_updated:
+  - text: Database updated
+  utter_did_that_help:
+  - text: Did that help you?
+
+  utter_jokes:
+  - text: I can sing a song like a professional for you.
+  - text: My sense of humour is far better than anyone in the world. Just kidding.

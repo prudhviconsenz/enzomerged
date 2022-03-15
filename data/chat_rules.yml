@@ -1,0 +1,76 @@
+version: "2.0"
+
+rules:
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: Implementation of the Two-Stage-Fallback
+  steps:
+  - intent: nlu_fallback
+  - action: action_reprompt
+
+- rule: hello
+  steps:
+  - intent: hello
+  - action: utter_hello
+
+- rule: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: what_scope
+  steps:
+  - intent: what_scope
+  - action: utter_scope
+
+- rule: dislike
+  steps:
+  - intent: dislike
+  - action: utter_dislike
+
+- rule: like
+  steps:
+  - intent: like
+  - action: utter_like
+
+- rule: thank you
+  steps:
+  - intent: thank_you
+  - action: utter_you_are_welcome
+
+- rule: how_are_you
+  steps:
+  - intent: how_are_you
+  - action: utter_iamfine
+
+- rule: happy
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+
+- rule: sad
+  steps:
+  - intent: mood_unhappy
+  - action: utter_sad
+
+- rule: jokes
+  steps:
+  - intent: jokes
+  - action: utter_jokes
+
+###################################################################
+
+- rule: cancel without topic closes current form
+  condition:
+  - slot_was_set:
+    - topic: null
+  steps:
+  - intent: cancel
+  - action: cancel
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utter_cancel
